@@ -1,0 +1,112 @@
+<apex:page showHeader="false" docType="html-5.0" standardStylesheets="false" controller="SurveyStockController" cache="true" >
+<html>
+<head>
+<title>Survey Stocks</title>
+	<link rel="stylesheet" href="{!URLFOR($Resource.surveyStockLib, 'jquery.mobile-1.3.1.min.css')}" />	
+	<apex:includeScript value="{!URLFOR($Resource.surveyStockLib, 'jquery-1.9.1.min.js')}"/>
+	<apex:includeScript value="{!URLFOR($Resource.surveyStockLib, 'jquery.mobile-1.3.1.min.js')}"/>
+	<apex:includeScript value="{!URLFOR($Resource.surveyStockLib, 'modernizr.js')}"/>
+	<apex:includeScript value="{!URLFOR($Resource.surveyStockLib, 'json2.js')}"/>
+	<apex:includeScript value="{!URLFOR($Resource.surveyStock)}"/>
+	<apex:includeScript value="{!URLFOR($Resource.surveyStockController)}"/>
+	<script>
+		$j = jQuery.noConflict();		
+		$j(document)
+			.delegate("#mainpage", "pageinit", function() { initMainPage(); })
+			.delegate("#surveypage", "pageinit", function() { initSurveyPage(); })
+			.delegate("#surveypage", "pagebeforeshow", function() { beforeSurveyShown(); })
+			.delegate("#surveypage", "pageshow", function() { surveyShown(); })
+			.delegate("#targetpage", "pagebeforeshow", function() { beforeTargetShown(); })
+			.delegate("#targetpage", "pageshow", function() { targetShown(); })
+			.delegate("#leaderboardpage", "pagebeforeshow", function() { beforeLeaderboardShown(); })
+			.delegate("#leaderboardpage", "pageshow", function() { leaderboardShown(); });
+	</script>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" /> 
+</head>
+<body>
+	<div data-role="page" id="mainpage">
+		<div data-role="header">
+            <h1>Survey Stocks</h1>
+        </div>
+        <div data-role="content">
+        	<label for="selectSurveys" class="ui-hidden-accessible">Choose Survey:</label>
+			<select name="selectSurveys" id="selectSurveys" data-theme="a">
+			</select>
+			<a id="buttonStart" href="#surveypage" data-role="button" data-theme="b">Start Survey</a>
+			<a id="buttonTargets" href="#targetpage" data-role="button" data-icon="info">Target Values</a>
+			<a id="buttonLeaderboard" href="#leaderboardpage" data-role="button" data-icon="star">Leaderboard</a>
+        </div>
+    </div>
+  	<div data-role="page" id="surveypage">
+        <div data-role="header">
+        	<a href="#mainpage" data-icon="home" data-iconpos="notext" data-shadow="false">Home</a>	
+            <h1>Survey Form</h1>
+        </div>
+        <div data-role="content">
+        	<label for="selectTitle" class="select">Title:</label>
+			<select name="selectTitle" id="selectTitle">
+				<option value="Mr">Mr</option>
+				<option value="Mrs">Mrs</option>
+				<option value="Ms">Ms</option>
+				<option value="Miss">Miss</option>
+			</select>
+        	<label for="textForename">Forename:</label>
+    		<input type="text" name="textForename" id="textForename" />
+    		<label for="textSurname">Surname:</label>
+    		<input type="text" name="textSurname" id="textSurname" />
+    		<label for="textPostcode">Postcode:</label>
+    		<input type="text" name="textPostcode" id="textPostcode" />
+    		<fieldset data-role="controlgroup" data-type="horizontal">
+    			<legend>Date of Birth:</legend>
+   				<label for="selectMonth" class="select">Month</label>
+				<select name="selectMonth" id="selectMonth">
+					<option value="01">Jan</option>
+					<option value="02">Feb</option>
+					<option value="03">Mar</option>
+					<option value="04">Apr</option>
+					<option value="05">May</option>
+					<option value="06">Jun</option>
+					<option value="07">Jul</option>
+					<option value="08">Au</option>
+					<option value="09">Sep</option>
+					<option value="10">Oct</option>
+					<option value="11">Nov</option>
+					<option value="12">Dec</option>
+				</select>
+				<label for="selectDay" class="select">Day</label>
+				<select name="selectDay" id="selectDay">
+				</select>
+				<label for="selectYear" class="select">Year</label>
+				<select name="selectYear" id="selectYear">
+				</select>
+    		</fieldset>
+    		<div id="questions">
+    		</div>
+			<a href="#mainpage" data-role="button" data-theme="b" id="buttonSave">Save</a>
+        </div>
+	</div>
+	<div data-role="page" id="targetpage">
+		<div data-role="header">
+			<a href="#mainpage" data-icon="home" data-iconpos="notext" data-shadow="false">Home</a>	
+            <h1>Target Values</h1>
+        </div>
+        <div data-role="content">
+        	<h2 id="targetLocationName"></h2>
+        	<div id="targetDiv" data-role="collapsible-set" data-inset="false" data-iconpos="right">
+			</div>
+        </div>
+    </div>
+    <div data-role="page" id="leaderboardpage">
+		<div data-role="header">
+			<a href="#mainpage" data-icon="home" data-iconpos="notext" data-shadow="false">Home</a>			
+            <h1>Leaderboard</h1>            
+        </div>
+        <div data-role="content">
+        	<div id="leaderboardDiv" data-role="collapsible-set" data-inset="false" data-iconpos="right">
+			</div>
+        </div>
+    </div>
+</body>
+</html>
+</apex:page>

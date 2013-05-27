@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Survey Answers</relationshipLabel>
+        <relationshipName>Survey_Answers</relationshipName>
+        <required>true</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Location__c</fullName>
+        <displayLocationInDecimal>true</displayLocationInDecimal>
+        <externalId>false</externalId>
+        <label>Location</label>
+        <required>false</required>
+        <scale>10</scale>
+        <type>Location</type>
+    </fields>
+    <fields>
+        <fullName>Survey__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey</label>
+        <referenceTo>Survey__c</referenceTo>
+        <relationshipLabel>Survey Answers</relationshipLabel>
+        <relationshipName>Survey_Answers</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <label>Survey Answer</label>
+    <nameField>
+        <displayFormat>SA-{0000}</displayFormat>
+        <label>Survey Answer ID</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Survey Answers</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

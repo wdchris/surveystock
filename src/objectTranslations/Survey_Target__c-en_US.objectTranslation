@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Survey Target</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Survey Targets</value>
+    </caseValues>
+    <fields>
+        <label><!-- Between 20 and 30 Collected --></label>
+        <name>Between_20_and_30_Collected__c</name>
+    </fields>
+    <fields>
+        <label><!-- Between 20 and 30 Target --></label>
+        <name>Between_20_and_30_Target__c</name>
+    </fields>
+    <fields>
+        <label><!-- Between 30 and 40 Collected --></label>
+        <name>Between_30_and_40_Collected__c</name>
+    </fields>
+    <fields>
+        <label><!-- Between 30 and 40 Target --></label>
+        <name>Between_30_and_40_Target__c</name>
+    </fields>
+    <fields>
+        <label><!-- Between 40 and 50 Collected --></label>
+        <name>Between_40_and_50_Collected__c</name>
+    </fields>
+    <fields>
+        <label><!-- Between 40 and 50 Target --></label>
+        <name>Between_40_and_50_Target__c</name>
+    </fields>
+    <fields>
+        <label><!-- Between 50 and 60 Collected --></label>
+        <name>Between_50_and_60_Collected__c</name>
+    </fields>
+    <fields>
+        <label><!-- Between 50 and 60 Target --></label>
+        <name>Between_50_and_60_Target__c</name>
+    </fields>
+    <fields>
+        <label><!-- Female Collected --></label>
+        <name>Female_Collected__c</name>
+    </fields>
+    <fields>
+        <label><!-- Female Target --></label>
+        <name>Female_Target__c</name>
+    </fields>
+    <fields>
+        <label><!-- Location Name --></label>
+        <name>Location_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Location --></label>
+        <name>Location__c</name>
+    </fields>
+    <fields>
+        <label><!-- Male Collected --></label>
+        <name>Male_Collected__c</name>
+    </fields>
+    <fields>
+        <label><!-- Male Target --></label>
+        <name>Male_Target__c</name>
+    </fields>
+    <fields>
+        <label><!-- Over 60 Collected --></label>
+        <name>Over_60_Collected__c</name>
+    </fields>
+    <fields>
+        <label><!-- Over 60 Target --></label>
+        <name>Over_60_Target__c</name>
+    </fields>
+    <fields>
+        <label><!-- Survey --></label>
+        <name>Survey__c</name>
+        <relationshipLabel><!-- Survey Targets --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Under 20 Collected --></label>
+        <name>Under_20_Collected__c</name>
+    </fields>
+    <fields>
+        <label><!-- Under 20 Target --></label>
+        <name>Under_20_Target__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

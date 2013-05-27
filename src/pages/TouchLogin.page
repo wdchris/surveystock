@@ -1,0 +1,5 @@
+<apex:page > 
+<script>
+    window.location.assign("https://login.salesforce.com/?startURL=%2Fapex%2Fsurveystock&display=touch");
+</script>
+</apex:page>
