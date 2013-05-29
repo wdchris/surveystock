@@ -33,6 +33,7 @@ public class TargetCalculator {
 	
 	public static Decimal getGenderValue(Survey_Target__c target, Enums.Gender gender) {
 		if(target != null){
+			// parse the gender and lookup value field from target
 			if(gender == Enums.Gender.MALE){
 				return calculateTargetValue(target.Male_Target__c, target.Male_Collected__c);
 			} else if (gender == Enums.Gender.FEMALE) {
@@ -45,6 +46,7 @@ public class TargetCalculator {
 	
 	public static Decimal getAgeValue(Survey_Target__c target, Date birthDate) {
 		if(target != null){
+			// parse the birthdate and lookup value field from target
 			Enums.AgeBand age = getAgeBand(birthDate);
 			if(age != null) {
 				if(age == Enums.AgeBand.UNDER_TWENTY){
@@ -99,6 +101,7 @@ public class TargetCalculator {
 		API_SurveyTarget apitarget = new API_SurveyTarget();
 		apitarget.locationName = target.Location_Name__c;
 		
+		// simple mapping from business to api object
 		apitarget.targets.add(getApiSurveyTarget('Males', target.Male_Target__c, target.Male_Collected__c));
 		apitarget.targets.add(getApiSurveyTarget('Females', target.Female_Target__c, target.Female_Collected__c));
 		apitarget.targets.add(getApiSurveyTarget('Under 20 years old', target.Under_20_Target__c, target.Under_20_Collected__c));
@@ -113,6 +116,7 @@ public class TargetCalculator {
 	}
 	
 	private static Decimal calculateTargetValue(Decimal target, Decimal collected){
+		// formula to calculate value based on percentage left to complete
 		if(target!= null && collected != null && target > 0 && collected < target){
 			return ((target - collected)/target)*1000;
 		}

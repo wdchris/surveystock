@@ -14,6 +14,7 @@ function hideLoading() {
 function initMainPage(){
 	getSurveys(function(surveys){setSurveys(surveys)});
 
+	// save our location
 	if (Modernizr.geolocation){
     	navigator.geolocation.getCurrentPosition(function(pos){    		
     		sessionStorage.latitude = pos.coords.latitude;
@@ -32,6 +33,7 @@ function setSurveys(surveys){
 	var options = $j('#selectSurveys');
 	options.empty();
 	
+	// populate survey dropdown
 	var index = 0;
 	var selectedIndex = 0;
 	$j.each(surveys, function(){
@@ -41,21 +43,11 @@ function setSurveys(surveys){
 			option.attr('selected', 'selected');
 		}
 		options.append(option);
-	
-	
-		/*
-		var optionHtml = '<option value="' + this.Id + '"';
-		if(sessionStorage.surveyId === this.Id){
-			optionHtml += ' selected="selected"';
-			selectedIndex = index;
-		}		
-	 	optionHtml += '>' + this.Name__c + '</option>';
-		options.append(optionHtml);
-		*/
 		
 		index++;
 	});
 	
+	// set state if available
 	options.selectedIndex = selectedIndex;
 	options.selectmenu('refresh');
 	
@@ -67,6 +59,7 @@ function setSurveys(surveys){
 }
 
 function initSurveyPage() {
+	// setup DOB dropdowns
 	var dayOptions = $j('#selectDay');
 	dayOptions.empty();
 	for(var i=1;i<=31;i++) {
@@ -82,6 +75,7 @@ function initSurveyPage() {
 	}
 	yearOptions.selectmenu('refresh', true);
 	
+	// parse results for survey answers
 	$j('#buttonSave').click(function(){
 		var birthMonth = $j('#selectMonth option:selected')[0].value;
 		var birthDay = $j('#selectDay option:selected')[0].value;
@@ -103,6 +97,7 @@ function initSurveyPage() {
 }
 
 function beforeSurveyShown() {
+	// clear any previous form data
 	$j('#questions').empty();
 	$j('#surveypage').find('input').each(function(){this.value = ''});
 	$j('#surveypage').find('select').each(function(){
@@ -117,13 +112,16 @@ function surveyShown() {
 }
 
 function setSurveyQuestions(questions, callback) {
+	// populate the form with questions depending on question type
 	var questionDiv = $j('#questions');
 	$j.each(questions, function(){
 		if(this.QuestionType__c === "Text") {
+			// this is a simple textbox		
 			questionDiv.append($j('<div />').attr('questionId',this.Id).attr('questiontype','text')
 						.append($j('<label />').attr('for',this.Id).html(this.Question__c + ':'))
 						.append($j('<input />').attr('type','text').attr('name',this.Id).attr('id',this.Id)));
 		} else if (this.QuestionType__c === "Choice") {
+			// get the dropdown options and create control
 			var options = 	$j.map(this.TypeChoices__c.split(","), function(choice) {
 								return $j('<option />').val(choice.trim()).text(choice.trim());
 							});
@@ -142,6 +140,7 @@ function setSurveyQuestions(questions, callback) {
 }
 
 function getSurveyAnswers() {
+	// find answers to questions on the form based on questionId
 	var answers = [];
 	$j('#questions').children().each(function(){
 		var questionDiv = $j(this);

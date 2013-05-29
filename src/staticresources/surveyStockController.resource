@@ -1,4 +1,9 @@
+/******************************************************************
+ Controller to handle access to data if it can be stored offline
+*******************************************************************/
+
 function getLocalStorageObject(key) {
+	// pull object from local storage and parse back to type
     var obj = localStorage[key];
     if (!isNull(obj)) {
         return JSON.parse(obj);
@@ -8,6 +13,7 @@ function getLocalStorageObject(key) {
 }
 
 function setLocalStorageObject(key, obj){
+	// store object in local storage in JSON string format
 	if (Modernizr.localstorage) {
 		if(!isNull(obj)) {
 			localStorage[key] =  JSON.stringify(obj);
@@ -17,7 +23,8 @@ function setLocalStorageObject(key, obj){
 	}
 }
 
-function onGetRemoteReturn(key, obj, e, callback) {
+function onGetRemoteReturn(key, obj, e, callback) {	
+	// handle remote call to store results or pull from offline storage if errored
 	if(e.status){    
 		setLocalStorageObject(key, obj);
 	} else if (Modernizr.localstorage) {
