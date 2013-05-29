@@ -1,0 +1,22 @@
+"ID","ISDELETED","NAME","QUESTION__C","QUESTIONTYPE__C","TYPECHOICES__C","SURVEY__C"
+"a07i0000000xwaTAAQ","false","SQ-0002","When did you get into football","Choice","Childhood,
+Teenager,
+Adult","a05i0000000E76fAAC"
+"a07i0000000xwaYAAQ","false","SQ-0004","Who sponsors the Premier League","Text","","a05i0000000E76fAAC"
+"a07i0000000xwZbAAI","false","SQ-0003","Who's your favourite player","Text","","a05i0000000E76fAAC"
+"a07i0000000xwaJAAQ","false","SQ-0001","Who's your favourite team","Choice","Manchester United,
+Manchester City,
+Arsenal,
+Chelsea,
+Tottenham Hotspur","a05i0000000E76fAAC"
+"a07i0000000xwbQAAQ","false","SQ-0006","Who's your favourite actor","Text","","a05i0000000E790AAC"
+"a07i0000000xwe6AAA","false","SQ-0005","What's your favourite genre","Choice","Action,Comedy,Horror,Romance","a05i0000000E790AAC"
+"a07i0000000yeiFAAQ","false","SQ-0010","Which cinema is best equipped","Text","","a05i0000000E790AAC"
+"a07i0000000yehvAAA","false","SQ-0007","How much would you pay for a ticket","Choice","£10,
+£20,
+£30,
+£40,
+£50","a05i0000000E76fAAC"
+"a07i0000000yei5AAA","false","SQ-0008","What's your best stadium","","","a05i0000000E76fAAC"
+"a07i0000000yeiAAAQ","false","SQ-0009","How much would you pay for a ticket","Choice","£5,£6,£7,£8,£9,£10","a05i0000000E790AAC"
+"a07i0000000yeiKAAQ","false","SQ-0011","How often do you go to the cinema","Text","","a05i0000000E790AAC"
